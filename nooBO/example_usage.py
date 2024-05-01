@@ -2,8 +2,8 @@ from nooBO import *
 from test_functions import *
 
 problem = optimization_problem(eggholder, num_dims = 2)
-bounds = torch.stack([-400*torch.ones(2), 400*torch.ones(2)])
+bounds = torch.stack([-512*torch.ones(2), 512*torch.ones(2)])
 
-res = problem.run(bounds, n_iter=100)
+result = problem.run(bounds, n_iter=300)
 
-print(res)
+print(result)

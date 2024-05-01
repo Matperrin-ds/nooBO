@@ -62,7 +62,7 @@ class optimization_problem():
 
     def run(self, bounds: Tensor, n_iter: int = 100,
             gp_type: str = 'full_rank', n_inducing_points: Optional[int] = 200,
-            num_restarts: int = 5, raw_samples: int = 10000, verbose_level = 0) -> dict:
+            num_restarts: int = 5, raw_samples: int = 10000) -> dict:
         """
         Run the Bayesian optimization algorithm.
 
@@ -92,7 +92,7 @@ class optimization_problem():
                 mll = VariationalELBO(gp.likelihood, gp.model, num_data=self.train_X.shape[-2])
                 underlying_gp = gp.model
 
-            # Fit GP hyperparameters using L-BFGS-B
+            # Fit GP hyperparameters
             fit_gpytorch_mll(mll)
 
             # Log hyperparameters in tensorboard
