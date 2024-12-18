@@ -11,7 +11,7 @@ nooBO is made for beginners, it wraps-up the few lines of code required to perfo
 ## Installation
 First install required dependencies.
 ```bash
-pip install pytorch botorch tensorboard
+pip install torch botorch tensorboard
 ```
 Then clone the repository.
 ```
