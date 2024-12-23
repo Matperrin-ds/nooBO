@@ -29,7 +29,8 @@ objective_function = Ackley(dim=2, negate = True)
 ```
 Then we specify the number of input dimensions, the optimization bounds and the number of initial random points to create the optimization problem.
 ```python
-problem = optimization_problem(objective_function, num_dims = 2, bounds = torch.Tensor([-32.768, -32.768],[32.768, 32.768]), n_randinit_points = 10)
+problem = optimization_problem(objective_function, num_dims = 2,
+bounds = torch.Tensor([-32.768, -32.768],[32.768, 32.768]), n_randinit_points = 10)
 ```
 Finally, we can run the Bayesian Optimization algorithm for 300 iterations.
 ```python
