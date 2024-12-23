@@ -36,4 +36,9 @@ Finally, we can run the Bayesian Optimization algorithm for 300 iterations.
 ```python
 result = problem.run(n_iter=300)
 ```
+Once the algorithm is finished running, we can visualize various metrics in tensorboard by running the following command
+```bash
+tensorboard --logdir runs
+```
 ## Technical details
+nooBO performs Bayesian Optimization with [`Gaussian Processes`](https://gaussianprocess.org/gpml/chapters/RW.pdf) as the surrogate model. More specifically, it uses the Matérn 5/2 kernel which is a usual choice. At each iteration, the algorithm makes an educated guess for where to evaluate the objective fuction by optimizing the [`Log Expected Improvement`](https://arxiv.org/abs/2310.20708) acquisition function via L-BFGS.
