@@ -6,7 +6,7 @@
 > Run BoTorch-based Bayesian Optimization with (almost) a single line of code
 
 ## Nota Bene
-nooBO is made for beginners, it wraps-up the few lines of code required to perform basic Bayesian Optimization using [`BoTorch`](https://botorch.org/), while automatically storing important metrics with [`Tensorboard`](https://www.tensorflow.org/tensorboard?hl=en) for easy vizualisation. With a couple of lines of code, it enables solving continuous optimization problems in low-dimensional spaces (roughly under 50 dimensions). For full-fledged research/engineering, it is best to use [`BoTorch`](https://botorch.org/) directly.  
+nooBO is made for beginners, it wraps-up the few lines of code required to perform basic Bayesian Optimization using [`BoTorch`](https://botorch.org/), while automatically storing important metrics with [`Tensorboard`](https://www.tensorflow.org/tensorboard?hl=en) for easy vizualisation. With a couple of lines of code, it enables solving continuous optimization problems in low-dimensional spaces (roughly under 50 dimensions). For full-fledged research/engineering, it is best to use [`BoTorch`](https://botorch.org/), either directly or with a higher level API through [`Ax`](https://botorch.org/docs/botorch_and_ax).  
 
 ## Installation
 First install required dependencies.
