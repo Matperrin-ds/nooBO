@@ -6,7 +6,7 @@
 > Run BoTorch-based Bayesian Optimization with (almost) a single line of code
 
 ## Nota Bene
-nooBO is made for beginners, it wraps-up the few lines of code required to perform basic Bayesian Optimization using [`BoTorch`](https://botorch.org/), while automatically storing important metrics with [`Tensorboard`](https://www.tensorflow.org/tensorboard?hl=en) for easy vizualisation. With a couple of lines of code, it enables solving continuous optimization problems in low-dimensional spaces (roughly under 50 dimensions). For full-fledged research/engineering, it is best to use [`BoTorch`](https://botorch.org/), either directly or with a higher level API through [`Ax`](https://botorch.org/docs/botorch_and_ax).  
+nooBO is made for beginners who want to solve toy problems such as school assignments while understanding what happens under the hood. It wraps-up the few lines of code required to perform basic Bayesian Optimization using [`BoTorch`](https://botorch.org/), while automatically storing important metrics with [`Tensorboard`](https://www.tensorflow.org/tensorboard?hl=en) for easy vizualisation. With a couple of lines of code, it enables solving continuous optimization problems in low-dimensional spaces (roughly under 50 dimensions). For full-fledged research/engineering, it is best to use [`BoTorch`](https://botorch.org/), either directly or through [`Ax`](https://botorch.org/docs/botorch_and_ax) which offers a production-ready, higher level API for adaptive experimentation.  
 
 ## Installation
 First install required dependencies.
@@ -36,9 +36,11 @@ Finally, we can run the Bayesian Optimization algorithm for 300 iterations.
 ```python
 result = problem.run(n_iter=300)
 ```
-Once the algorithm is finished running, we can visualize various metrics in tensorboard by running the following command
+Once the algorithm is finished running, we can visualize various metrics in tensorboard by firt running the following command
 ```bash
 tensorboard --logdir runs
 ```
+then opening a web browser and going to http://localhost:6006/.
+
 ## Technical details
-nooBO performs Bayesian Optimization with [`Gaussian Processes`](https://gaussianprocess.org/gpml/chapters/RW.pdf) as the surrogate model. More specifically, it uses the Matérn 5/2 kernel which is a usual choice. At each iteration, the algorithm makes an educated guess for where to evaluate the objective fuction by optimizing the [`Log Expected Improvement`](https://arxiv.org/abs/2310.20708) acquisition function via L-BFGS.
+nooBO performs Bayesian Optimization with [`Gaussian Processes`](https://gaussianprocess.org/gpml/chapters/RW.pdf) as the surrogate model. More specifically, it uses the Matérn 5/2 kernel and a learnable constant mean (These are pretty common choices). At each iteration, the algorithm makes an educated guess for where to evaluate the objective fuction in a "smart" way by optimizing the [`Log Expected Improvement`](https://arxiv.org/abs/2310.20708) acquisition function via L-BFGS.
